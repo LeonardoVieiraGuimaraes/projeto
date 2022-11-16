@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     "main",
     "checklist",
     "crispy_forms",
+    "pessoa"
 ]
 
 MIDDLEWARE = [
