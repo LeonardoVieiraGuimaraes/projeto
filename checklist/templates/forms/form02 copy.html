@@ -1,0 +1,252 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% load crispy_forms_tags %}
+
+{% block form %}
+
+<fieldset>
+    <legend>Cirúrgia</legend>
+
+    <p> <label for="idCirurgiaProposta">Cirúrgia Proposta:</label>
+        <input type=" text" name="cirurgiaProposta" id="idCirurgiaProposta" required>
+    </p>
+
+
+    <p> <label for="idCirurgiaRealizada">Cirurgia Realizada:</label>
+        <input type=" text" name="cirurgiaRealizada" id="idCirurgiaRealizada" required>
+    </p>
+
+    <p> <label for="idSalaCirurgia">Sala da Cirurgia:</label>
+        <input type="text" name="salaCirurgia" id="idSalaCirurgia" required>
+    </p>
+
+    <p> <label for="idDataCirurgia">Data Cirurgia:</label>
+        <input type="date" name="dataCirurgia" id="idDataCirurgia" required>
+    </p>
+
+    <p>
+        <label for="idModalidade">Modalidade:</label><br>
+
+        <input type="radio" name="Modalidade" id="idEletiva" value="Eletiva" required>
+        <label for="idEletiva">Eletiva</label><br>
+
+        <input type="radio" name="Modalidade" id="idUrgencia" value="Urgência" required>
+        <label for="idUrgencia">Urgência</label><br>
+
+        <input type="radio" name="Modalidade" id="idEmergencia" value="Emergência" required>
+        <label for="idEmergencia">Emergência</label><br>
+    </p>
+
+    <p>
+
+        Realizou Qimioterapia: <br>
+
+        <input type="radio" name="quimioterapia" id="idSimQimioterapia" value="Sim">
+        <label for="idSimQimioterapia">Sim</label><br>
+
+        <input type="radio" name="quimioterapia" id="idNaoQimioterapia" value="Não">
+        <label for="idNaoQimioterapia">Não</label><br>
+
+        <label for="idQuantasSessoesQimioterapia">Quantas Sessões:</label>
+        <input type="number" name="quantasSessoesQimioterapia" id="idQuantasSessoesQimioterapia">
+    </p>
+
+    <p>
+        Realizou Radioterapia: <br>
+
+        <input type="radio" name="radioterapia" id="idSimRadioterapia" value="Sim">
+        <label for="idSimRadioterapia">Sim</label><br>
+
+        <input type="radio" name="radioterapia" id="idNaoRadioterapia" value="Não">
+        <label for="idNaoRadioterapia">Não</label><br>
+
+        <label for="idQuantasSessoesRadioterapia">Quantas Sessões:</label>
+        <input type="number" name="quantasSessoesRadioterapia" id="idQuantasSessoesRadioterapia">
+    </p>
+</fieldset>
+<p><input type="submit" value="Enviar">
+    <input type="reset" value="Limpar">
+</p>
+{% endblock %}
+
+<!-- <form action="." autocomplete="on" method="POST">
+    <fieldset>
+
+        <div class="form-group row">
+
+            {{ form.nome.id_for_label }}
+            {{ form.nome.name }}
+            {{ form.nome.value }}
+
+            {{ form.help_text }}
+
+            {{ value|date:"D d M Y" }}
+            It is {% now "jS F Y H:i" %}
+            {{ value|default_if_none:"nothing" }}
+
+
+            <legend>Dados do Paciente </legend>
+
+
+
+            <p> <label for={{ form.nome.id_for_label }}>Paciente</label>
+                <input type="text" class="form-control" name="{{ form.nome.name }}" id={{ form.nome.id_for_label }}
+                    required onclick="">
+
+
+            </p>
+            {% if form.nome.status %}
+
+            <p> <input type="submit" value="Salvar" disabled></p>
+
+            {% else %}
+
+            <p> <input type="submit" value="Salvar"></p>
+
+            {% endif %}
+
+             <p> <input type="submit" value="Salvar"></p> -->
+<!-- </div>
+</fieldset>
+</form> --> -->
+
+
+<!-- <p> <label for="idNomeMae">Nome da Mãe </label>
+            <input type="text" name="nomeMae" id="idNomeMae" required>
+        </p>
+
+        <p><label for="idDataNascimento">data de Nascimento</label>
+            <input type="date" name="dataNascimento" id="idDataNascimento" required>
+        </p>
+
+        <p><label for="idProntuario">Prontuario</label>
+            <input type="text" name="prontuario" id="idProntuario" required>
+        </p>
+
+    </fieldset>
+
+
+    <fieldset>
+        <legend>Cirúrgia</legend>
+
+        <p> <label for="idCirurgiaProposta">Cirúrgia Proposta:</label>
+            <input type=" text" name="cirurgiaProposta" id="idCirurgiaProposta" required>
+        </p>
+
+
+
+        <p> <label for="idCirurgiaRealizada">Cirurgia Realizada:</label>
+            <input type=" text" name="cirurgiaRealizada" id="idCirurgiaRealizada" required>
+        </p>
+
+        <p> <label for="idSalaCirurgia">Sala da Cirurgia:</label>
+            <input type="text" name="salaCirurgia" id="idSalaCirurgia" required minlength="5" size="8" maxlength="20"
+                placeholder="'Minimo 8 letras">
+        </p>
+
+        <p> <label for="idDataCirurgia">Data Cirurgia:</label>
+            <input type="date" name="dataCirurgia" id="idDataCirurgia" required>
+        </p>
+
+        <p>
+            <label for="idModalidade">Modalidade:</label><br>
+
+            <input type="radio" name="Modalidade" id="idEletiva" value="Eletiva" required>
+            <label for="idEletiva">Eletiva</label><br>
+
+            <input type="radio" name="Modalidade" id="idUrgencia" value="Urgência" required>
+            <label for="idUrgencia">Urgência</label><br>
+
+            <input type="radio" name="Modalidade" id="idEmergencia" value="Emergência" required>
+            <label for="idEmergencia">Emergência</label><br>
+        </p>
+
+
+
+</form>
+
+ -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <h2>Cadastro Usuário</h2>
+
+<form action="." method="post" class="form-inline">
+    {% csrf_token %} -->
+
+
+
+
+
+
+<!-- {{ form|crispy }} -->
+
+
+<!-- <fieldset>
+
+        <div class="container d-inline-flex p-2">
+            <label for="id_nome" class="sr-only">Nome</label>
+            {{ form.nome }}
+
+
+
+
+            <label for="id_modalidade" class="sr-only">Sim</label>
+
+            <input type="radio" name="{{ form.modalidade.name }}" id={{ form.modalidade.id }}>
+
+            <label for="id_modalidade" class="sr-only">Não</label>
+
+            <input type="radio" name="{{ form.modalidade.name }}" id={{ form.modalidade.id }}>
+
+          {{ form.dataNascimento }}
+
+
+        </div>
+
+
+
+       {{ form.modalidade }}
+
+        <button type="submit" class="btn btn-primary mb-2">Salvar Formulário</button>
+
+        <input type="text"
+       name="{{ form.name.name }}"
+       id="{{ form.name.id_for_label }}"
+       {% if form.name.value != None %}value="{{ form.name.value|stringformat:'s' }}"{% endif %}
+       maxlength="{{ form.name.field.max_length }}"
+       {% if form.name.field.required %}required{% endif %}> -->
+<!-- 
+    </fieldset>
+    <input type="submit" value="Cadastrar">
+
+</form>
+
+<form action="">
+    {{ form }}
+
+    {{ form.modalidade.name }}
+    {{ form.modalidade.id_modalidade }}
+
+
+</form> -->

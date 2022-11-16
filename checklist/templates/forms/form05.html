@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% load crispy_forms_tags %}
+
+{% block form %}
+
+<fieldset>
+    <legend>ANTES DO USÚARIO SAIR DA SALA DE CIRÚRGIA: </legend>
+
+    <table>
+        <caption>Contagem</caption>
+        <thead>
+            <tr>
+                <th></th>
+                <th>Instrumentais</th>
+                <th>Compressas</th>
+                <th>Agulhas</th>
+                <th>Lâmina de bisturi</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th>Antes</th>
+                <td><input type="number" name="antesInstrumentos" id="idAntesInstrumentos"></td>
+                <td><input type="number" name="antesCompressas" id="idAntesCompressas"></td>
+                <td><input type="number" name="antesAgulhas" id="idAntesAgulhas"></td>
+                <td><input type="number" name="antesLaminaBisturi" id="idAntesLaminaBisturi"></td>
+            </tr>
+
+            <tr>
+                <th>Depois</th>
+                <td><input type="number" name="depoisInstrumentos" id="idADepoisnstrumentos"></td>
+                <td><input type="number" name="depoisCompressas" id="idDepoisCompressas"></td>
+                <td><input type="number" name="depoisAgulhas" id="idDepoisAgulhas"></td>
+                <td><input type="number" name="depoisLaminaBisturi" id="idDepoisLaminaBisturi"></td>
+            </tr>
+
+        </tbody>
+    </table>
+
+    <p>
+        Registro completo do procedimento intraoperatório com registro no livro de procedimentos?<br>
+
+        <input type="radio" name="registroCompleto" id="idSimRegistroCompleto" value="Sim">
+        <label for="idSimRegistroCompleto">Sim</label><br>
+
+        <input type="radio" name="registroCompleto" id="idNaoRegistroCompleto" value="Não">
+        <label for="idNaoRegistroCompleto">Não</label><br>
+    </p>
+
+    <p>
+        Houve algum problema com materiais, equipamentos ou instrumentais?<br>
+
+        <input type="radio" name="problemaMateriais" id="idSimProblemaMateriais" value="Sim">
+        <label for="idSimProblemaMateriais">Sim</label>
+
+        <label for="idQualRevisaoAnestesista">Qual?</label>
+        <input type="text" name="qualRevisaoCirurgica" id="idQualRevisaoAnestesista"><br>
+
+        <input type="radio" name="problemaMateriais" id="idNaoProblemaMateriais" value="Não">
+        <label for="idNaoProblemaMateriais">Não</label><br>
+    </p>
+
+    <p>
+        Alta confirmada pelo anestesista e enfermagem para:<br>
+
+        <input type="radio" name="altaConfirmada" id="idUTI" value="UTI">
+        <label for="idUTI">UTI</label>
+
+        <input type="radio" name="altaConfirmada" id="idRPA" value="RPA">
+        <label for="idRPA">RPA</label><br>
+
+        <label for="idHoraAltaConfirmada">Hora:</label>
+        <input type="time" name="HoraAltaConfirmada" id="idHoraAltaConfirmada"><br>
+    </p>
+</fieldset>
+
+<p><input type="submit" value="Enviar">
+    <input type="reset" value="Limpar">
+</p>
+
+{% endblock %}

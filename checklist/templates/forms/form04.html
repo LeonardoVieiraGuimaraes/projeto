@@ -1,0 +1,128 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% load crispy_forms_tags %}
+
+{% block form %}
+
+<fieldset>
+    <legend>ANTES DA INICISÃO CIRÚRGICA</legend>
+
+    <p>
+        Todos os profissionais confirmam nome e função?<br>
+
+        <input type="radio" name="profissionaisConfirmaram" id="idSimProfissionaisConfirmaram" value="Sim">
+        <label for="idSimProfissionaisConfirmaram">Sim</label><br>
+
+        <input type="radio" name="profissionaisConfirmaram" id="idNaoProfissionaisConfirmaram" value="Não">
+        <label for="idNaoProfissionaisConfirmaram">Não</label><br>
+
+    </p>
+
+    <p>
+        O cirurgião, anestesista e equipe de enfermagem confirmam:<br>
+
+        <input type="checkbox" name="identificacaoPaciente" id="identificacaoPaciente"
+            value="identificação do paciente">
+        <label for="identificacaoPaciente">identificação do paciente</label><br>
+
+        <input type="checkbox" name="sitioCirurgico" id="idSitioCirurgico" value="sitio cirúrgico">
+        <label for="idSitioCirurgico">sitio cirúrgico</label><br>
+
+        <input type="checkbox" name="procedimento" id="idProcedimento" value="procedimento">
+        <label for="idProcedimento">procedimento</label><br>
+
+    </p>
+
+    <p>
+        O antibiótico profilático foi administrado nos últimos 60 min?<br>
+
+        <input type="radio" name="antibioticoProfilatico" id="idSimAntibioticoProfilatico" value="Sim">
+        <label for="idSimAntibioticoProfilatico">Sim</label>
+
+        <label for="idHoraAntibioticoProfilatico">Hora: </label>
+        <input type="time" name="horaAntibioticoProfilatico" id="idHoraAntibioticoProfilatico"><br>
+
+        <input type="radio" name="antibioticoProfilatico" id="idNaoAntibioticoProfilatico" value="Não">
+        <label for="idNaoAntibioticoProfilatico">Não</label><br>
+    </p>
+
+    <p>
+        Exames de imagem estão disponíveis?<br>
+
+        <input type="radio" name="examesImagem" id="idSimExamesImagem" value="Sim">
+        <label for="idSimExamesImagem">Sim</label><br>
+
+        <input type="radio" name="examesImagem" id="idNaoExamesImagem" value="Não">
+        <label for="idNaoExamesImagem">Não</label><br>
+    </p>
+
+    <fieldset>
+
+        <legend>Antecipação de eventos críticos:</legend>
+        <p>
+            Revisão cirurgião: Há etapas críticas durante o procedimento?<br>
+
+            <input type="radio" name="revisaoCirurgica" id="idSimRevisaoCirurgica" value="Sim">
+            <label for="idSimRevisaoCirurgica">Sim</label>
+
+            <label for="idQualRevisaoCirurgica">Qual?</label>
+            <input type="text" name="qualRevisaoCirurgica" id="idQualRevisaoCirurgica"><br>
+
+            <input type="radio" name="revisaoCirurgica" id="idNaoRevisaoCirurgica" value="Não">
+            <label for="idNaoRevisaoCirurgica">Não</label><br>
+        </p>
+        <p>
+            Revisão anestesista: Há alguma preocupação especifica em relação ao usuário?<br>
+            <input type="radio" name="revisaoAnestesista" id="idSimRevisaoAnestesista" value="Sim">
+            <label for="idSimRevisaoAnestesista">Sim</label>
+
+            <label for="idQualRevisaoAnestesista">Qual?</label>
+            <input type="text" name="qualRevisaoCirurgica" id="idQualRevisaoAnestesista"><br>
+
+            <input type="radio" name="revisaoAnestesista" id="idNaoRevisaoAnestesista" value="Não">
+            <label for="idNaoRevisaoAnestesista">Não</label><br>
+        </p>
+    </fieldset>
+
+    <fieldset>
+        <legend>Revisão da enfermagem:</legend>
+        <p>
+            Instrumentais cirúrgicos estéreis e conferidos?<br>
+
+            <input type="radio" name="instrumentaisCirurgicos" id="idSimInstrumentaisCirurgicos" value="Sim">
+            <label for="idSimInstrumentaisCirurgicos">Sim</label><br>
+
+            <input type="radio" name="instrumentaisCirurgicos" id="idNaoInstrumentaisCirurgicos" value="Não">
+            <label for="idNaoInstrumentaisCirurgicos">Não</label><br>
+        </p>
+        <p>
+            Placa de bisturi posicionado?<br>
+
+            <input type="radio" name="placaBisturi" id="idSimPlacaBisturi" value="Sim">
+            <label for="idSimPlacaBisturi">Sim</label><br>
+
+            <input type="radio" name="placaBisturi" id="idNaoPlacaBisturi" value="Não">
+            <label for="idNaoPlacaBisturi">Não</label><br>
+
+            <input type="radio" name="placaBisturi" id="idNA" value="NA">
+            <label for="idNA">NA</label><br>
+        </p>
+
+        <p>
+            Equipamento testado e funcionantes?<br>
+
+            <input type="radio" name="equipamentoTestado" id="idSimEquipamentoTestado" value="Sim">
+            <label for="idSimEquipamentoTestado">Sim</label><br>
+
+            <input type="radio" name="equipamentoTestado" id="idNaoEquipamentoTestado" value="Não">
+            <label for="idNaoEquipamentoTestado">Não</label><br>
+        </p>
+    </fieldset>
+
+</fieldset>
+<p><input type="submit" value="Enviar">
+    <input type="reset" value="Limpar">
+</p>
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% load crispy_forms_tags %}
+
+
+
+
+
+{% block form %}
+
+<p><label for="{{ form.prontuario.id_for_label }}">Prontuario: </label>
+    <input type="text" name="{{ form.prontuario.name }}" id="{{ form.prontuario.id_for_label }}"
+        value="{{ form.prontuario.value | default_if_none:'' }}" required>
+</p>
+
+
+<p> <label for={{ form.nome.id_for_label }}>Nome do Paciente: </label>
+    <input type="text" name="{{ form.nome.name }}" id="{{ form.nome.id_for_label }}"
+        value="{{ form.nome.value | default_if_none:'' }}" required>
+</p>
+
+
+<p> <label for="{{ form.nomeMae.id_for_label }}">Nome da Mãe: </label>
+    <input type="text" name="{{ form.nomeMae.name | default_if_none:'' }}" id="{{ form.nomeMae.id_for_label }}"
+        value="{{ form.nomeMae.value | default_if_none:''}}" required>
+</p>
+
+<p><label for="{{ form.dataNascimento.id_for_label }}">data de Nascimento:</label>
+    <input type="date" name="{{ form.dataNascimento.name }}" id="{{ form.dataNascimento.id_for_label }}"
+        value="{{ form.dataNascimento.value | date:'Y-m-d' | default_if_none:''}}" required>
+</p>
+
+{% endblock %}

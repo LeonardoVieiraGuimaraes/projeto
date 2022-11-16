@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+
+{% block form %}
+
+
+<fieldset>
+
+    <legend>Cirúrgia</legend>
+
+    <p> <label for="{{ form.cirurgiaProposta.id_for_label }}">Cirúrgia Proposta:</label>
+        <input type=" text" name="{{ form.cirurgiaProposta.name }}" id="{{ form.cirurgiaProposta.id_for_label }}"
+            value="{{ form.cirurgiaProposta.value | default_if_none:'' }}" required>
+    </p>
+
+    <p> <label for="{{ form.cirurgiaRealizada.id_for_label }}">Cirurgia Realizada:</label>
+        <input type=" text" name="{{ form.cirurgiaRealizada.name }}" id="{{ form.cirurgiaRealizada.id_for_label }}"
+            value="{{ form.cirurgiaRealizada.value | default_if_none:'' }}" required>
+    </p>
+
+    <p> <label for="{{ form.salaCirugica.id_for_label }}">Sala Cirurgica:</label>
+        <input type=" text" name="{{ form.salaCirugica.name }}" id="{{ form.salaCirugica.id_for_label }}"
+            value="{{ form.salaCirugica.value | default_if_none:'' }}" required>
+    </p>
+
+    <p> <label for="{{ form.dataCirurugia.id_for_label }}">Data da Cirurgia:</label>
+        <input type="date" name="{{ form.dataCirurugia.name }}" id="{{ form.dataCirurugia.id_for_label }}"
+            value="{{ form.dataCirurugia.value | date:'Y-m-d' | default_if_none:''}}" required>
+    </p>
+    <div>
+        <p>Modalidade:</p>
+        <p>
+
+            <input {% if form.modalidade.value == "Eletiva" %} checked {% endif %} type="radio"
+                name="{{ form.modalidade.name }}" id="idEletiva" value="Eletiva" checked>
+            <label for="idEletiva">Eletiva</label><br>
+
+            <input  {% if form.modalidade.value == "Urgência" %} checked {% endif %} type="radio" name="{{ form.modalidade.name }}" id="idUrgencia" value="Urgência">
+            <label for="idUrgencia">Urgência</label><br>
+
+            <input {% if form.modalidade.value == "Emergência" %} checked {% endif %} type="radio" name="{{ form.modalidade.name }}" id="idEmergencia" value="Emergência">
+            <label for="idEmergencia">Emergência</label><br>
+        </p>
+
+    </div>
+    <p>Realizou Quimeoterapia:</p>
+
+    <p>
+        <input{% if form.realizouQuimeoterapia.value == "s" %} checked {% endif %} type="radio" name="{{ form.realizouQuimeoterapia.name }}" id="realizouQuimeoterapiaS" value="s" required>
+        <label for="realizouQuimeoterapiaS">Sim</label>
+
+        <label for="{{ form.quantasSQ.id_for_label }}">Quantas:</label>
+        <input type="number" name="{{ form.quantasSQ.name }}" id="{{ form.quantasSQ.id_for_label }}" value="{{ form.quantasSQ.value | default_if_none:'' }}" required><br>
+
+        <input <input{% if form.realizouQuimeoterapia.value == "n" %} checked {% endif %} type="radio" name="{{ form.realizouQuimeoterapia.name }}" id="realizouQuimeoterapiaN" value="n" required>
+        <label for="realizouQuimeoterapiaN">Não</label><br>
+
+    </p>
+
+    <p>Realizou Radioterapia:</p>
+    <div class="form-group">
+    <p>
+        <input <input {% if form.realizouRadioterapia.value == "s" %} checked {% endif %} type="radio" name="{{ form.realizouRadioterapia.name }}" id="realizouRadioterapiaS" value="s">
+        <label for="realizouRadioterapiaS" oninput = "EnableDisable({{ form.quantasRR.id_for_label }}" >Sim</label>
+
+        <label for="{{ form.realizouRadioterapia.id_for_label }}">Quantas:</label>
+        <input {{ name }} type="number" name="{{ form.quantasRR.name }}" id="{{ form.quantasRR.id_for_label }}"  value="{{ form.quantasSQ.value | default_if_none:'' }}" required><br>
+
+        <input <input{% if form.realizouRadioterapia.value == "n" %} checked {% endif %} type="radio" name="{{ form.realizouRadioterapia.name }}" id="realizouRadioterapiaN" value="n" required>
+        <label for="realizouRadioterapiaN">Não</label><br>
+
+    </p>
+    </div>
+
+    
+</fieldset>
+
+<script>
+
+    function EnableDisable(id_i, id_j) {
+
+        document.getElementById(id).disabled = true;
+    }
+</script>
+
+{% endblock %}

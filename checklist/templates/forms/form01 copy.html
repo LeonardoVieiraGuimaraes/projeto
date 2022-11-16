@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% load crispy_forms_tags %}
+
+
+
+
+{% block form %}
+{% csrf_token %}
+
+<fieldset class="form-group">
+
+    <legend>Dados do Usuário</legend>
+    <div class="row">
+        {% for field in form %}
+
+
+
+
+
+        <div class="form-group col-md-6">
+
+            <p> <label for={{ field.id_for_label }} col-form-label>{{ field.label_tag }}</label>
+                <input type={{ field.field.widget.input_type }} name={{ field.name }} id={{ field.id_for_label }}
+                    class="form-control" required>
+            </p>
+
+        </div>
+
+
+
+        {% endfor %}
+    </div>
+
+</fieldset>
+
+<fieldset>
+    <legend>Dados do Usuário</legend>
+
+    <p> <label for={{ form.nome.id_for_label }}>Usuário</label>
+        <input type="text" name={{ form.nome.name }} id={{ form.nome.id_for_label }} required>
+    </p>
+
+    <p> <label for="idNomeMae">Nome da Mãe </label>
+        <input type="text" name="nomeMae" id="idNomeMae" required>
+    </p>
+
+    <p><label for="idDataNascimento">data de Nascimento</label>
+        <input type="date" name="dataNascimento" id="idDataNascimento" required>
+    </p>
+
+    <p><label for="idProntuario">Prontuario</label>
+        <input type="text" name="prontuario" id="idProntuario" required>
+    </p>
+
+</fieldset>
+
+
+
+
+{% endblock %}
