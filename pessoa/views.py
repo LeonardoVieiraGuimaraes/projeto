@@ -5,4 +5,4 @@ from .models import Pessoa
 
 class ListPessoaView(ListView):
     model = Pessoa
-    queryset = Pessoa.objects.all.order_by('nome_compelto')
+    queryset = Pessoa.objects.all().order_by('nome_completo')
